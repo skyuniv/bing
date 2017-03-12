@@ -11,4 +11,4 @@ image_url = "http://cn.bing.com/az/hprichbg/rb/"+image_2+"_1920x1080.jpg"
 image_name = time.strftime("%Y-%m-%d", time.localtime())
 print(image_name)
 image_save = urllib.request.urlretrieve(image_url, 'H:\\bing_image\\%s.jpg' % image_name)
-print("Image is ok")
+
