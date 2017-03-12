@@ -1,0 +1,25 @@
+#coding = utf-8
+import requests
+from bs4 import BeautifulSoup
+import re
+
+url = 'http://cn.bing.com/'
+image = requests.get(url).content
+image_1 = image.decode('utf-8','ignore')
+image_2 = image_1.split("hprichbg/rb/")[1].split("_1920x1080.jpg")[0]
+print( image_2)
+"""
+image_data = ''
+f = open("bing.txt","a+",encoding= 'utf-8')
+f.write(image_sou)
+for line in f:
+    image_data = image_data +line
+f.close()
+print(image_data)
+"""
+
+#正则可以直接从获得的数据匹配，而不是必须从txt中
+result_0 = re.findall('[0-9]{10,11}',image_1)
+for image_url_0 in  result_0:
+    image_url = "http://cn.bing.com/az/hprichbg/rb/" +image_2+"_ZH-CN"+image_url_0+"_1920x1080.jpg"
+    print(image_url)
